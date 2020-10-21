@@ -6,7 +6,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 private const val BASE_URL = "https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/"
 
 class RetrofitPhone {
-        fun retrofitIntance(): ApiPhone {
+    companion object {
+        fun retrofitInstance(): ApiPhone {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -14,3 +15,4 @@ class RetrofitPhone {
             return retrofit.create(ApiPhone::class.java)
         }
     }
+}

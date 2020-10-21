@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [EntityProduct::class,EntityDetail::class] , version = 1)
 abstract class DataBasePhone : RoomDatabase() {
 
-    //abstract fun getDaoHeroe(): DaoHeroe
+    abstract fun getDaoPhone(): DaoPhone
 
     companion object {
 
@@ -27,7 +27,7 @@ abstract class DataBasePhone : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     DataBasePhone::class.java,
-                    "heroe_database"
+                    "Phone_database"
                 ).build()
                 INSTANCE = instance
                 return instance

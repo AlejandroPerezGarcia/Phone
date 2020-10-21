@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface ApiPhone {
-    @GET("products")
+    @GET("products/")
     fun getAllProduct() : Call<List<Products>>
 
     @GET("details")

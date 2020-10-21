@@ -8,6 +8,6 @@ data class EntityProduct (
 
   @PrimaryKey  val id: Int,
     val name: String,
-    val image: String,
-    val price: Int
+    val price: Int,
+    val image: String
     )
