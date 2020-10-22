@@ -11,6 +11,6 @@ interface ApiPhone {
     fun getAllProduct() : Call<List<Products>>
 
     @GET("details/{id}")
-    fun getAllDetail(@Path ("id") id: Int) : Call<List<Details>>
+    fun getAllDetail(@Path ("id") id: Int) : Call<Details>
 
 }

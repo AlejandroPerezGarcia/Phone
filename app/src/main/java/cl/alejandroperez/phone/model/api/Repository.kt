@@ -3,6 +3,7 @@ package cl.alejandroperez.phone.model.api
 import android.content.Context
 import android.util.Log
 import cl.alejandroperez.phone.model.db.DataBasePhone
+import cl.alejandroperez.phone.model.db.EntityDetail
 import cl.alejandroperez.phone.model.db.EntityProduct
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -40,9 +41,33 @@ class Repository (context: Context) {
             products -> EntityProduct(products.id, products.name,products.price,products.image)}
 
     }
+    fun detailConvert(details: Details ) : EntityDetail {
+        return EntityDetail(details.id,details.name,details.price,details.image,details.description,details.lastPrice,details.credit)
+
+    }
 
     fun saveDatabase (listProductEntity : List<EntityProduct>){
         CoroutineScope(Dispatchers.IO).launch { dataBasePhone.getDaoPhone().insertProduct(listProductEntity) }
         Log.d("sabe","$listProductEntity")
     }
+
+    fun loadDetail(id: Int) {
+        val call = RetrofitPhone.retrofitInstance().getAllDetail(id)
+
+        call.enqueue(object :Callback<Details>{
+            override fun onResponse(call: Call<Details>, response: Response<Details>) {
+
+            }
+
+            override fun onFailure(call: Call<Details>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+
+        })
+
+
+
+    }
+
 }

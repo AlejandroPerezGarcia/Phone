@@ -27,6 +27,7 @@ class PhoneViewModel (application: Application) : AndroidViewModel(application) 
     fun selecionado(product: Products){
         datoSelecinado.value = product
         Log.d("phone" , "${product}")
+        repository.loadDetail(product.id)
 
     }
 
