@@ -11,6 +11,7 @@ import cl.alejandroperez.phone.model.db.EntityProduct
 class PhoneViewModel (application: Application) : AndroidViewModel(application) {
 
     private var repository:Repository = Repository(application)
+
     var listProduct = repository.listProduct
 
 

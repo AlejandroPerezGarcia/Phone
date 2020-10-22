@@ -22,57 +22,74 @@
                 android:id="@+id/imageDetailImage"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                tools:layout_editor_absoluteX="130dp"
-                tools:layout_editor_absoluteY="91dp"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="131dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailId"
                 tools:src="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/txtDetailId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="177dp"
-                tools:layout_editor_absoluteY="41dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/txtDetailName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="176dp"
-                tools:layout_editor_absoluteY="281dp" />
+                app:layout_constraintEnd_toEndOf="@+id/imageDetailImage"
+                app:layout_constraintStart_toStartOf="@+id/imageDetailImage"
+                app:layout_constraintTop_toBottomOf="@+id/imageDetailImage" />
 
             <TextView
                 android:id="@+id/txtDetailDescrip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="72dp"
-                tools:layout_editor_absoluteY="356dp" />
+                app:layout_constraintEnd_toEndOf="@+id/txtDetailName"
+                app:layout_constraintStart_toStartOf="@+id/txtDetailName"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailName" />
 
             <TextView
                 android:id="@+id/txtDetailPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="440dp" />
+                app:layout_constraintEnd_toEndOf="@+id/txtDetailDescrip"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/txtDetailDescrip"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailDescrip" />
 
             <TextView
                 android:id="@+id/txtDetailLasPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="477dp" />
+                app:layout_constraintEnd_toEndOf="@+id/txtDetailPrice"
+                app:layout_constraintStart_toStartOf="@+id/txtDetailPrice"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailPrice" />
 
             <TextView
                 android:id="@+id/txtDetailCredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="TextView"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="551dp" />
+                app:layout_constraintEnd_toEndOf="@+id/txtDetailLasPrice"
+                app:layout_constraintStart_toStartOf="@+id/txtDetailLasPrice"
+                app:layout_constraintTop_toBottomOf="@+id/txtDetailLasPrice" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

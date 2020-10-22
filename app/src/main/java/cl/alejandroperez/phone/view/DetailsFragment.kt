@@ -64,11 +64,11 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-      /*  phoneViewModel.datoSelecinado.observe(viewLifecycleOwner, Observer {
+       phoneViewModel.datoSelecinado.observe(viewLifecycleOwner, Observer {
             Log.d("detail","${it}")
             txtDetailName.text = it.name
             txtDetailId.text = it.id.toString()
             txtDetailPrice.text = it.price.toString()
-        })*/
+        })
     }
 }
