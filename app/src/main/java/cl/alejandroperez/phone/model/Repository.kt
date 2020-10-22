@@ -1,7 +1,10 @@
-package cl.alejandroperez.phone.model.api
+package cl.alejandroperez.phone.model
 
 import android.content.Context
 import android.util.Log
+import cl.alejandroperez.phone.model.api.Details
+import cl.alejandroperez.phone.model.api.Products
+import cl.alejandroperez.phone.model.api.RetrofitPhone
 import cl.alejandroperez.phone.model.db.DataBasePhone
 import cl.alejandroperez.phone.model.db.EntityDetail
 import cl.alejandroperez.phone.model.db.EntityProduct
@@ -36,15 +39,7 @@ class Repository (context: Context) {
         })
       }
 
-    fun productConvert(listProducts: List<Products>): List<EntityProduct>{
-        return listProducts.map {
-            products -> EntityProduct(products.id, products.name,products.price,products.image)}
 
-    }
-    fun detailConvert(details: Details ) : EntityDetail {
-        return EntityDetail(details.id,details.name,details.price,details.image,details.description,details.lastPrice,details.credit)
-
-    }
 
     fun saveDatabase (listProductEntity : List<EntityProduct>){
         CoroutineScope(Dispatchers.IO).launch { dataBasePhone.getDaoPhone().insertProduct(listProductEntity) }

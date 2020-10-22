@@ -5,12 +5,11 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import cl.alejandroperez.phone.model.api.Products
-import cl.alejandroperez.phone.model.api.Repository
-import cl.alejandroperez.phone.model.db.EntityProduct
+import cl.alejandroperez.phone.model.Repository
 
 class PhoneViewModel (application: Application) : AndroidViewModel(application) {
 
-    private var repository:Repository = Repository(application)
+    private var repository: Repository = Repository(application)
 
     var listProduct = repository.listProduct
 
