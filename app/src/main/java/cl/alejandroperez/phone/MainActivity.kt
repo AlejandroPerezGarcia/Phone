@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .add(R.id.container_fragments, ListFragment.newInstance("", ""), "lista")
+                .add(R.id.fragments, ListFragment.newInstance("", ""), "lista")
                 .commit()
         } else {
             supportFragmentManager.findFragmentByTag("lista")

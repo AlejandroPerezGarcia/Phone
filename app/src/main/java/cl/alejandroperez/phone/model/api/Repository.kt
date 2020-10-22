@@ -17,8 +17,6 @@ class Repository (context: Context) {
     var dataBasePhone = DataBasePhone.getDatabase(context)
     var listProduct = dataBasePhone.getDaoPhone().getAllProduct()
 
-
-
     fun loadApiPhone() {
 
         val call = RetrofitPhone.retrofitInstance().getAllProduct()
@@ -33,13 +31,10 @@ class Repository (context: Context) {
 
             override fun onFailure(call: Call<List<Products>>, t: Throwable) {
                 Log.d("Adapter" , "Error al cargar")
-
             }
-
-
         })
-
       }
+
     fun productConvert(listProducts: List<Products>): List<EntityProduct>{
         return listProducts.map {
             products -> EntityProduct(products.id, products.name,products.price,products.image)}

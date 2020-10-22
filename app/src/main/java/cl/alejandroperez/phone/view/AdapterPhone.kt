@@ -1,11 +1,14 @@
 package cl.alejandroperez.phone.view
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import cl.alejandroperez.phone.R
 import cl.alejandroperez.phone.model.api.Products
+import cl.alejandroperez.phone.model.db.EntityProduct
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_list.view.*
 
@@ -19,12 +22,21 @@ RecyclerView.Adapter<AdapterPhone.PhoneViewHolder>(){
         return PhoneViewHolder(view)
     }
 
+    val productSelec = MutableLiveData<Products>()
+
     override fun onBindViewHolder(holder:PhoneViewHolder, position: Int) {
         holder.id.text = phoneDataset.get(position).id.toString()
         holder.name.text = phoneDataset.get(position).name
         holder.price.text = phoneDataset.get(position).price.toString()
         Picasso.get().load(phoneDataset.get(position).image).into(holder.image.imageViewList)
 
+        holder.itemView.setOnClickListener{
+            Log.d("viewHolder", "${phoneDataset.get(position).id.toString()}")
+
+            productSelec.value = phoneDataset.get(position)
+
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -46,4 +58,8 @@ RecyclerView.Adapter<AdapterPhone.PhoneViewHolder>(){
         notifyDataSetChanged()
 
     }
+}
+
+private fun <T> MutableLiveData<T>.postValue(toString: String) {
+
 }

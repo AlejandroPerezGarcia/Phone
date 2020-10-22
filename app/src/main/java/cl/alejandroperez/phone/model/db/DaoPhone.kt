@@ -15,7 +15,7 @@ interface DaoPhone {
     @Query("select * from product_table")
     fun getAllProduct() : LiveData<List<Products>>
 
-    @Query("select * from detail_table")
+    @Query("select *  from detail_table where id ")
     fun getAllDetail() : LiveData<List<Details>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
