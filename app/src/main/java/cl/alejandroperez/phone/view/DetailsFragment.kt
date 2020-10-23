@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cl.alejandroperez.phone.R
@@ -21,6 +22,7 @@ private const val ARG_PARAM2 = "param2"
 class DetailsFragment : Fragment() {
 
     private val phoneViewModel : PhoneViewModel by activityViewModels()
+
     lateinit var phone : EntityDetail
 
     private var param1: String? = null
@@ -64,11 +66,12 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       phoneViewModel.datoSelecinado.observe(viewLifecycleOwner, Observer {
+        phoneViewModel.result.observe(viewLifecycleOwner, Observer {
             Log.d("detail","${it}")
-            txtDetailName.text = it.name
+          /*  txtDetailName.text = it.name
             txtDetailId.text = it.id.toString()
             txtDetailPrice.text = it.price.toString()
+            txtDetailCredit.text = it.credit.toString()*/
         })
     }
 }

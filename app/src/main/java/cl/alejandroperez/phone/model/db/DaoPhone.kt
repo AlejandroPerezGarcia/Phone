@@ -15,14 +15,14 @@ interface DaoPhone {
     @Query("select * from product_table")
     fun getAllProduct() : LiveData<List<Products>>
 
-    @Query("select *  from detail_table where id ")
-    fun getAllDetail() : LiveData<List<Details>>
+    @Query("select *  from detail_table where id = :id ")
+    fun getDetail(id : Int) : LiveData<Details>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProduct(productlist : List<EntityProduct>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDetail(detallist : List<EntityDetail>)
+    suspend fun insertDetail(detallist : EntityDetail)
 
 
 

@@ -2,6 +2,8 @@ package cl.alejandroperez.phone.model
 
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import cl.alejandroperez.phone.model.api.Details
 import cl.alejandroperez.phone.model.api.Products
 import cl.alejandroperez.phone.model.api.RetrofitPhone
@@ -30,20 +32,21 @@ class Repository (context: Context) {
             override fun onResponse(call: Call<List<Products>>, response: Response<List<Products>>) {
                Log.d("Adapter", "{${response.body()}}")
                saveDatabase(productConvert(response.body()!!))
-
             }
-
             override fun onFailure(call: Call<List<Products>>, t: Throwable) {
                 Log.d("Adapter" , "Error al cargar")
             }
         })
       }
 
-
-
     fun saveDatabase (listProductEntity : List<EntityProduct>){
         CoroutineScope(Dispatchers.IO).launch { dataBasePhone.getDaoPhone().insertProduct(listProductEntity) }
         Log.d("sabe","$listProductEntity")
+    }
+
+    fun saveDataBaseDetail(listDetailEntity : EntityDetail){
+        CoroutineScope(Dispatchers.IO).launch { dataBasePhone.getDaoPhone().insertDetail(listDetailEntity) }
+
     }
 
     fun loadDetail(id: Int) {
@@ -51,18 +54,20 @@ class Repository (context: Context) {
 
         call.enqueue(object :Callback<Details>{
             override fun onResponse(call: Call<Details>, response: Response<Details>) {
+                Log.d("TAGREPO1", "${response.body()}")
+                saveDataBaseDetail(detailConvert(response.body()!!))
+                Log.d("TAGREPO2", "${response.body()}")
 
             }
 
             override fun onFailure(call: Call<Details>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("TAGREPO#","$t NO LLEGA NADA")
             }
-
-
         })
+    }
 
-
-
+    fun getDetail(id : Int): LiveData<Details>  {
+        return dataBasePhone.getDaoPhone().getDetail(id)
     }
 
 }
