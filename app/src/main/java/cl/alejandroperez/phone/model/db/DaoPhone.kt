@@ -22,7 +22,7 @@ interface DaoPhone {
     suspend fun insertProduct(productlist : List<EntityProduct>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertDetail(detallist : EntityDetail)
+    suspend fun insertDetail(detallist : EntityDetail )
 
 
 

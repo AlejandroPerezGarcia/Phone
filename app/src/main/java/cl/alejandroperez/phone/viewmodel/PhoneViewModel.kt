@@ -16,6 +16,7 @@ class PhoneViewModel (application: Application) : AndroidViewModel(application) 
     var listProduct = repository.listProduct
     lateinit var result : LiveData<Details>
 
+
     init {
         repository = Repository(application)
         repository.loadApiPhone()
@@ -28,8 +29,11 @@ class PhoneViewModel (application: Application) : AndroidViewModel(application) 
         datoSelecinado.value = product
         Log.d("phone" , "${product}")
         repository.loadDetail(product.id)
+        Log.d("RECUPERADO1" , "${product.id}")
+      /*  val valor = product.id
+        Log.d("RECUPERADO 2" , "${valor}")*/
         result =  repository.getDetail(product.id)
-
+        Log.d("RECUPERADO3" , "${result}")
 
     }
 

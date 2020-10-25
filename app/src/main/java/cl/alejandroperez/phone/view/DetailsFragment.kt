@@ -68,10 +68,14 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         phoneViewModel.result.observe(viewLifecycleOwner, Observer {
             Log.d("detail","${it}")
-          /*  txtDetailName.text = it.name
-            txtDetailId.text = it.id.toString()
-            txtDetailPrice.text = it.price.toString()
-            txtDetailCredit.text = it.credit.toString()*/
+            if (it != null) {
+                txtDetailName.text = it.name
+                txtDetailId.text = it.id.toString()
+                txtDetailPrice.text = it.price.toString()
+                txtDetailCredit.text = it.credit.toString()
+            }
+
+
         })
     }
 }
