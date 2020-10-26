@@ -20,76 +20,71 @@
 
             <ImageView
                 android:id="@+id/imageDetailImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="31dp"
-                android:layout_marginEnd="131dp"
+                android:layout_width="421dp"
+                android:layout_height="781dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtDetailId"
                 tools:src="@tools:sample/avatars" />
 
-            <TextView
-                android:id="@+id/txtDetailId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="TextView"
+            <view
+                android:id="@+id/view"
+                class="androidx.constraintlayout.widget.ConstraintLayout"
+                android:layout_width="0dp"
+                android:layout_height="300dp"
+                android:background="@color/cardview_shadow_start_color"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/txtDetailName"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/imageDetailImage"
-                app:layout_constraintStart_toStartOf="@+id/imageDetailImage"
-                app:layout_constraintTop_toBottomOf="@+id/imageDetailImage" />
-
-            <TextView
-                android:id="@+id/txtDetailDescrip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/txtDetailName"
-                app:layout_constraintStart_toStartOf="@+id/txtDetailName"
-                app:layout_constraintTop_toBottomOf="@+id/txtDetailName" />
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/view"
+                app:layout_constraintTop_toTopOf="@+id/view" />
 
             <TextView
                 android:id="@+id/txtDetailPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/txtDetailDescrip"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/txtDetailDescrip"
-                app:layout_constraintTop_toBottomOf="@+id/txtDetailDescrip" />
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtDetailName" />
 
             <TextView
                 android:id="@+id/txtDetailLasPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:text="TextView"
+                android:textColor="@color/accent_color"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/txtDetailPrice"
-                app:layout_constraintStart_toStartOf="@+id/txtDetailPrice"
                 app:layout_constraintTop_toBottomOf="@+id/txtDetailPrice" />
 
             <TextView
-                android:id="@+id/txtDetailCredit"
+                android:id="@+id/txtDetailDescrip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:text="TextView"
-                app:layout_constraintEnd_toEndOf="@+id/txtDetailLasPrice"
-                app:layout_constraintStart_toStartOf="@+id/txtDetailLasPrice"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/txtDetailName"
                 app:layout_constraintTop_toBottomOf="@+id/txtDetailLasPrice" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

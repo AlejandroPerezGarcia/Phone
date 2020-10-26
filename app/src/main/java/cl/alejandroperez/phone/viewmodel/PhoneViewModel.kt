@@ -30,8 +30,6 @@ class PhoneViewModel (application: Application) : AndroidViewModel(application) 
         Log.d("phone" , "${product}")
         repository.loadDetail(product.id)
         Log.d("RECUPERADO1" , "${product.id}")
-      /*  val valor = product.id
-        Log.d("RECUPERADO 2" , "${valor}")*/
         result =  repository.getDetail(product.id)
         Log.d("RECUPERADO3" , "${result}")
 

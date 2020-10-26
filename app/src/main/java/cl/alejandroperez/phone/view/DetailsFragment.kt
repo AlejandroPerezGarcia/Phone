@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import cl.alejandroperez.phone.R
 import cl.alejandroperez.phone.model.db.EntityDetail
 import cl.alejandroperez.phone.viewmodel.PhoneViewModel
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_details.*
 
 
@@ -70,9 +71,12 @@ class DetailsFragment : Fragment() {
             Log.d("detail","${it}")
             if (it != null) {
                 txtDetailName.text = it.name
-                txtDetailId.text = it.id.toString()
+               // txtDetailId.text = it.id.toString()
+                txtDetailDescrip.text = it.description
                 txtDetailPrice.text = it.price.toString()
-                txtDetailCredit.text = it.credit.toString()
+                //txtDetailCredit.text = it.credit.toString()
+                txtDetailLasPrice.text = it.lastPrice.toString()
+                Picasso.get().load(it.image).into(imageDetailImage)
             }
 
 
