@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cl.alejandroperez.phone.R
+import cl.alejandroperez.phone.model.api.Details
 import cl.alejandroperez.phone.model.db.EntityDetail
 import cl.alejandroperez.phone.viewmodel.PhoneViewModel
 import com.google.android.material.snackbar.Snackbar
@@ -78,30 +79,22 @@ class DetailsFragment : Fragment() {
                 //txtDetailCredit.text = it.credit.toString()
                 txtDetailLasPrice.text = it.lastPrice.toString()
                 Picasso.get().load(it.image).into(imageDetailImage)
-
-
-
             }
             fab.setOnClickListener { view ->
                 Snackbar.make(view, "Email", Snackbar.LENGTH_LONG)
                     .setAction("Action", null)
                     .show()
                     email()
-
-
             }
-
-
 
         })
 
-
     }
-    private fun email() {
+     fun email() {
 
-        val intent = Intent(Intent.ACTION_SEND)
+         val intent = Intent(Intent.ACTION_SEND)
         intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("appPruebakotlin@gmail.com"))
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta por   Numero  ")
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta por    Numero  ")
         intent.putExtra(Intent.EXTRA_TEXT, " “Hola\n" +
                 "Vi el producto {PRODUCT_NAME} y me gustaría que me contactaran a este correo o al\n" +
                 "siguiente número _________")
