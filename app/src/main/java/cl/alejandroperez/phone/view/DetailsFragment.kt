@@ -1,19 +1,20 @@
 package cl.alejandroperez.phone.view
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import cl.alejandroperez.phone.R
 import cl.alejandroperez.phone.model.db.EntityDetail
 import cl.alejandroperez.phone.viewmodel.PhoneViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_details.*
+import kotlinx.android.synthetic.main.item_list.*
 
 
 private const val ARG_PARAM1 = "param1"
@@ -68,18 +69,48 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         phoneViewModel.result.observe(viewLifecycleOwner, Observer {
-            Log.d("detail","${it}")
+            //  Log.d("detail","${it}")
             if (it != null) {
                 txtDetailName.text = it.name
-               // txtDetailId.text = it.id.toString()
+                // txtDetailId.text = it.id.toString()
                 txtDetailDescrip.text = it.description
                 txtDetailPrice.text = it.price.toString()
                 //txtDetailCredit.text = it.credit.toString()
                 txtDetailLasPrice.text = it.lastPrice.toString()
                 Picasso.get().load(it.image).into(imageDetailImage)
+
+
+
+            }
+            fab.setOnClickListener { view ->
+                Snackbar.make(view, "Email", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null)
+                    .show()
+                    email()
+
+
             }
 
 
+
         })
+
+
     }
+    private fun email() {
+
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("appPruebakotlin@gmail.com"))
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta por   Numero  ")
+        intent.putExtra(Intent.EXTRA_TEXT, " “Hola\n" +
+                "Vi el producto {PRODUCT_NAME} y me gustaría que me contactaran a este correo o al\n" +
+                "siguiente número _________")
+        intent.type = "message/rfc822"
+        startActivity(Intent.createChooser(intent, "Choose an email client"))
+    }
+
 }
+
+
+
+

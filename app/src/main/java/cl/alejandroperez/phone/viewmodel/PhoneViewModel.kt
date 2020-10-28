@@ -27,14 +27,12 @@ class PhoneViewModel (application: Application) : AndroidViewModel(application) 
 
     fun selecionado(product: Products){
         datoSelecinado.value = product
-        Log.d("phone" , "${product}")
+     //   Log.d("phone" , "${product}")
         repository.loadDetail(product.id)
-        Log.d("RECUPERADO1" , "${product.id}")
+    //    Log.d("RECUPERADO1" , "${product.id}")
         result =  repository.getDetail(product.id)
-        Log.d("RECUPERADO3" , "${result}")
+      //  Log.d("RECUPERADO3" , "${result}")
 
     }
-
-
 
 }

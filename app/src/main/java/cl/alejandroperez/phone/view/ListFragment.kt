@@ -64,8 +64,6 @@ class ListFragment : Fragment() {
             Log.d("fragment" , "$it")
              adapter.updateProduct(it)
 
-
-
         })
 
         adapter.productSelec.observe(viewLifecycleOwner, Observer {
