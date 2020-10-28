@@ -80,6 +80,19 @@ class DetailsFragment : Fragment() {
                 txtDetailLasPrice.text = it.lastPrice.toString()
                 Picasso.get().load(it.image).into(imageDetailImage)
             }
+
+            fun email() {
+
+                val intent = Intent(Intent.ACTION_SEND)
+                intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("appPruebakotlin@gmail.com"))
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta por ${it.name} , ID : ${it.id} ")
+                intent.putExtra(Intent.EXTRA_TEXT, " “Hola\n" +
+                        "Vi el producto ${it.name} y me gustaría que me contactaran a este correo o al\n" +
+                        "siguiente número _________")
+                intent.type = "message/rfc822"
+                startActivity(Intent.createChooser(intent, "Choose an email client"))
+            }
+
             fab.setOnClickListener { view ->
                 Snackbar.make(view, "Email", Snackbar.LENGTH_LONG)
                     .setAction("Action", null)
@@ -90,17 +103,9 @@ class DetailsFragment : Fragment() {
         })
 
     }
-     fun email() {
 
-         val intent = Intent(Intent.ACTION_SEND)
-        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("appPruebakotlin@gmail.com"))
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Consulta por    Numero  ")
-        intent.putExtra(Intent.EXTRA_TEXT, " “Hola\n" +
-                "Vi el producto {PRODUCT_NAME} y me gustaría que me contactaran a este correo o al\n" +
-                "siguiente número _________")
-        intent.type = "message/rfc822"
-        startActivity(Intent.createChooser(intent, "Choose an email client"))
-    }
+
+
 
 }
 
