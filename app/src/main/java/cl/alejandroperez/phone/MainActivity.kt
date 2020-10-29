@@ -15,7 +15,5 @@ class MainActivity : AppCompatActivity() {
         } else {
             supportFragmentManager.findFragmentByTag("lista")
         }
-
-
     }
 }

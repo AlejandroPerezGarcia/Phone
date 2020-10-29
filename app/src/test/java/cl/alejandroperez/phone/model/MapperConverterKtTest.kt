@@ -1,13 +1,12 @@
 package cl.alejandroperez.phone.model
 
-import android.telecom.Call
 import cl.alejandroperez.phone.model.api.Details
 import cl.alejandroperez.phone.model.api.Products
 import cl.alejandroperez.phone.model.db.EntityDetail
 import cl.alejandroperez.phone.model.db.EntityProduct
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Test
-
-import org.junit.Assert.*
 
 class MapperConverterKtTest {
 

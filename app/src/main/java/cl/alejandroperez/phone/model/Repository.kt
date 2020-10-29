@@ -3,7 +3,6 @@ package cl.alejandroperez.phone.model
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import cl.alejandroperez.phone.model.api.Details
 import cl.alejandroperez.phone.model.api.Products
 import cl.alejandroperez.phone.model.api.RetrofitPhone
@@ -20,7 +19,7 @@ import retrofit2.Response
 
 class Repository (context: Context) {
 
-    var dataBasePhone = DataBasePhone.getDatabase(context)
+    private var dataBasePhone = DataBasePhone.getDatabase(context)
     var listProduct = dataBasePhone.getDaoPhone().getAllProduct()
 
     fun loadApiPhone() {
@@ -46,7 +45,6 @@ class Repository (context: Context) {
 
     fun saveDataBaseDetail(listDetailEntity : EntityDetail){
         CoroutineScope(Dispatchers.IO).launch { dataBasePhone.getDaoPhone().insertDetail(listDetailEntity) }
-
     }
 
     fun loadDetail(id: Int) {
@@ -57,7 +55,6 @@ class Repository (context: Context) {
                 Log.d("TAGREPO1", "${response.body()}")
                 saveDataBaseDetail(detailConvert(response.body()!!))
                 Log.d("TAGREPO2", "${response.body()}")
-
             }
 
             override fun onFailure(call: Call<Details>, t: Throwable) {

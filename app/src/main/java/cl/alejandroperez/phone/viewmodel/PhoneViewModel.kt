@@ -23,10 +23,10 @@ class PhoneViewModel (application: Application) : AndroidViewModel(application) 
         Log.d("load", "${repository.loadApiPhone()}")
     }
 
-    val datoSelecinado = MutableLiveData<Products>()
+    private val deselect = MutableLiveData<Products>()
 
     fun selecionado(product: Products){
-        datoSelecinado.value = product
+        deselect.value = product
      //   Log.d("phone" , "${product}")
         repository.loadDetail(product.id)
     //    Log.d("RECUPERADO1" , "${product.id}")

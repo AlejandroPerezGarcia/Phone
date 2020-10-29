@@ -7,15 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import cl.alejandroperez.phone.R
-import cl.alejandroperez.phone.model.api.Details
 import cl.alejandroperez.phone.model.db.EntityDetail
 import cl.alejandroperez.phone.viewmodel.PhoneViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_details.*
-import kotlinx.android.synthetic.main.item_list.*
 
 
 private const val ARG_PARAM1 = "param1"
@@ -48,15 +45,7 @@ class DetailsFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             DetailsFragment().apply {
@@ -69,7 +58,7 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        phoneViewModel.result.observe(viewLifecycleOwner, Observer {
+        phoneViewModel.result.observe(viewLifecycleOwner, {
             //  Log.d("detail","${it}")
             if (it != null) {
                 txtDetailName.text = it.name

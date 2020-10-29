@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import cl.alejandroperez.phone.R
 import cl.alejandroperez.phone.model.api.Products
 import cl.alejandroperez.phone.viewmodel.PhoneViewModel
@@ -60,13 +59,13 @@ class ListFragment : Fragment() {
         listRecyclerView.adapter = adapter
         val phoneViewModel: PhoneViewModel by activityViewModels()
 
-        phoneViewModel.listProduct.observe(viewLifecycleOwner, Observer {
+        phoneViewModel.listProduct.observe(viewLifecycleOwner,{
             Log.d("fragment" , "$it")
              adapter.updateProduct(it)
 
         })
 
-        adapter.productSelec.observe(viewLifecycleOwner, Observer {
+        adapter.productSelect.observe(viewLifecycleOwner,{
             Log.d("lifeCyclearOwner", " selecionado $it")
 
             phoneViewModel.selecionado(it)

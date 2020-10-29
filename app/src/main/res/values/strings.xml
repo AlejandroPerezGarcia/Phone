@@ -92,4 +92,12 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="submit">Boton</string>
+    <string name="id">Id</string>
+    <string name="name">Nombre Producto</string>
+    <string name="price">Precio</string>
+    <string name="Descript">Descripcion</string>
+    <string name="lasprice">Precio Oferta</string>
+    <string name="Image">Imagen Producto</string>
+    <string name="Botton">Boton flotante</string>
+
 </resources>
